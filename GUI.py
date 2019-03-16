@@ -1,6 +1,6 @@
-from PyQt4.uic import loadUiType
-from PyQt4 import  QtGui ,uic,QtCore
-from PyQt4.QtGui import *
+#from PyQt4.uic import loadUiType
+from PyQt4 import  QtGui ,uic
+from PyQt4.QtGui import QMainWindow,QPixmap
 #from PySide import  QtGui ,uic,QtCore
 #from PySide.QtGui import *
 #from PySide import QtCore, QtGui
@@ -93,24 +93,25 @@ class Main(QMainWindow):
     def browseThenGenerate(self):
         self.path = QtGui.QFileDialog.getExistingDirectory(self, "Select Folder","")  # return the path of the selected folder
         if self.path:
-            self.Output_Folder_Path_LineEdit.setText(self.path)
-            outputFolder = self.Output_Folder_Path_LineEdit.text()
-            DIO_Config_File = outputFolder+'DIO_Config_File.h'
-            MFIC_File = outputFolder+'MFIC.h'
-            DIO_File_handler = open("DIO_Config_File",'w')
-            MFIC_File_handler = open("MFIC.h",'w')
+            outputFolder = self.path + r'\\'
+            self.path=self.path + r'\\'
+            self.Output_Folder_Path_LineEdit.setText(self.path.replace(r'\\', r'\ '))
 
-            pin_mode=""
-            index=0
-
-            for index in range (31):
-                pin_mode=self.pins_dict[str(index)]
-                DIO_File_handler.write(r'#define DIO_u8_'+index+'PIN0_Mode      '+pin_mode)
-                MFIC_File_handler.write(r'#define   '+pin_mode+index)
-                index+=1
+            DIO_Config_File = outputFolder + 'DIO_Config_File.h'
+            MFIC_File = outputFolder + 'MFIC.h'
+            DIO_File_handler = open(DIO_Config_File, 'w')
+            MFIC_File_handler = open(MFIC_File, 'w')
+            pin_mode = ""
+            for index in range(31):
+                pin_mode = self.pins_dict[str(index)]
+                if pin_mode != "not configured":
+                    pin_mode = self.pins_dict[str(index)].replace(' ', '')
+                    DIO_File_handler.write(r'#define DIO_u8_PIN' + str(index) + '_Mode      ' + pin_mode + '\n')
+                    MFIC_File_handler.write(r'#define DIO_u8_PIN_' + str(index) + '      ' + str(index) + '\n')
 
             DIO_File_handler.close()
             MFIC_File_handler.close()
+
     def resource_path(self, relative_path):#used in .exe extraction
         """ Get absolute path to resource, works for dev and for PyInstaller """
         try:
