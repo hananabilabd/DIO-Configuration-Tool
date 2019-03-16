@@ -123,8 +123,9 @@ class Main(QMainWindow):
 
 if __name__ == '__main__':
     app = QtGui.QApplication(sys.argv)
-    app.setWindowIcon(QtGui.QIcon('mohsen.jpg'))
     main = Main()
+    app.setWindowIcon(QtGui.QIcon(main.resource_path('mohsen.jpg')))
+
     main.show()
     sys.exit(app.exec_())
 
