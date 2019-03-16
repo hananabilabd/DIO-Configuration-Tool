@@ -82,7 +82,17 @@ class Main(QMainWindow):
 
 
     def NewPinsConfiguration(self):
-        self.pins_dict = self.pins_dict_init
+        #self.pins_dict.clear()
+        self.pins_dict = {
+            "0": "not configured", "1": "not configured", "2": "not configured", "3": "not configured",
+            "4": "not configured", "5": "not configured", "6": "not configured", "7": "not configured",
+            "8": "not configured", "9": "not configured", "10": "not configured", "11": "not configured",
+            "12": "not configured", "13": "not configured", "14": "not configured", "15": "not configured",
+            "16": "not configured", "17": "not configured", "18": "not configured", "19": "not configured",
+            "20": "not configured", "21": "not configured", "22": "not configured", "23": "not configured",
+            "24": "not configured", "25": "not configured", "26": "not configured", "27": "not configured",
+            "28": "not configured", "29": "not configured", "30": "not configured", "31": "not configured"
+        }
         for i in self.checkboxesPins :
             i.setChecked(False)
         self.apply_pinsLabels()
@@ -112,8 +122,8 @@ class Main(QMainWindow):
         pin_mode=""
         index=0
 
-        for pin in self.pins_dict:
-            pin_mode=pin[1]
+        for index in range (31):
+            pin_mode=self.pins_dict[str(index)]
             DIO_File_handler.write(r'#define DIO_u8_'+pin+'PIN0_Mode      '+pin_mode)
             MFIC_File_handler.write(r'#define   '+pin+index)
             index+=1
