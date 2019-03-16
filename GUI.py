@@ -93,15 +93,12 @@ class Main(QMainWindow):
     def browseThenGenerate(self):
         self.path = QtGui.QFileDialog.getExistingDirectory(self, "Select Folder","")  # return the path of the selected folder
         if self.path:
-            outputFolder = self.path + r'\\'
-            self.path=self.path + r'\\'
-            self.Output_Folder_Path_LineEdit.setText(self.path.replace(r'\\', r'\ '))
-
-            DIO_Config_File = outputFolder + 'DIO_Config_File.h'
-            MFIC_File = outputFolder + 'MFIC.h'
+            outputFolder = self.path
+            self.Output_Folder_Path_LineEdit.setText(self.path+r'\ ')
+            DIO_Config_File = outputFolder + '\DIO_Config_File.h'
+            MFIC_File = outputFolder + '\MFIC.h'
             DIO_File_handler = open(DIO_Config_File, 'w')
             MFIC_File_handler = open(MFIC_File, 'w')
-            pin_mode = ""
             for index in range(31):
                 pin_mode = self.pins_dict[str(index)]
                 if pin_mode != "not configured":
