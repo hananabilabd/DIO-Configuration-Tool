@@ -187,8 +187,8 @@
    </property>
    <property name="geometry">
     <rect>
-     <x>590</x>
-     <y>440</y>
+     <x>560</x>
+     <y>450</y>
      <width>341</width>
      <height>31</height>
     </rect>
@@ -197,29 +197,11 @@
     <string>Browse folder</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_Browse">
-   <property name="geometry">
-    <rect>
-     <x>940</x>
-     <y>440</y>
-     <width>93</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>10</pointsize>
-    </font>
-   </property>
-   <property name="text">
-    <string>Browse</string>
-   </property>
-  </widget>
   <widget class="QLabel" name="label_OuputFolderPath">
    <property name="geometry">
     <rect>
      <x>420</x>
-     <y>440</y>
+     <y>450</y>
      <width>161</width>
      <height>31</height>
     </rect>
@@ -1032,17 +1014,21 @@
     <string/>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_FinalSave">
+  <widget class="QPushButton" name="pushButton_BrowseGenerate">
    <property name="geometry">
     <rect>
-     <x>430</x>
-     <y>490</y>
-     <width>161</width>
-     <height>23</height>
+     <x>920</x>
+     <y>440</y>
+     <width>121</width>
+     <height>61</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{background-color : rgb(90, 255, 10); }</string>
+   </property>
    <property name="text">
-    <string>Generate Config</string>
+    <string>Browse and 
+generate</string>
    </property>
   </widget>
   <widget class="QGroupBox" name="groupBox_2">
