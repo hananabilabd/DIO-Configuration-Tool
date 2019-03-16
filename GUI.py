@@ -10,7 +10,7 @@ class Main(QMainWindow):
     def __init__(self, parent=None):
         super(Main, self).__init__()
         uic.loadUi(self.resource_path('DIO_config_Tool.ui'), self)
-        pixmap = QPixmap("sobhy.jpg")
+        pixmap = QPixmap(self.resource_path("sobhy.jpg"))
         self.label_image.setPixmap(pixmap)
         self.label_image.setScaledContents(True)
         self.pushButton_SaveCurrent.clicked.connect(self.SaveCurrentPinsConfigToDict)
