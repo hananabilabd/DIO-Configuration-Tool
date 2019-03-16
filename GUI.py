@@ -95,8 +95,8 @@ class Main(QMainWindow):
         if self.path:
             outputFolder = self.path
             self.Output_Folder_Path_LineEdit.setText(self.path+r'\ ')
-            DIO_Config_File = outputFolder + '\DIO_Config_File.h'
-            MFIC_File = outputFolder + '\MFIC.h'
+            DIO_Config_File = outputFolder + r'\DIO_Config_File.h'
+            MFIC_File = outputFolder + r'\MFIC.h'
             DIO_File_handler = open(DIO_Config_File, 'w')
             MFIC_File_handler = open(MFIC_File, 'w')
             for index in range(31):
