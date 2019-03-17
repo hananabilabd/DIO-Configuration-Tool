@@ -5,14 +5,16 @@ from PyQt4.QtGui import QMainWindow,QPixmap
 #from PySide.QtGui import *
 #from PySide import QtCore, QtGui
 import sys, os
-
+import resource_rc
 class Main(QMainWindow):
     def __init__(self, parent=None):
         super(Main, self).__init__()
         uic.loadUi(self.resource_path('DIO_config_Tool.ui'), self)
-        pixmap = QPixmap(self.resource_path("sobhy.jpg"))
-        self.label_image.setPixmap(pixmap)
-        self.label_image.setScaledContents(True)
+        # self.setupUi(self)
+        # image_rc.qInitResources()
+        #pixmap = QPixmap(self.resource_path("sobhy.jpg"))
+        #self.label_image.setPixmap(pixmap)
+        #self.label_image.setScaledContents(True)
         self.pushButton_SaveCurrent.clicked.connect(self.SaveCurrentPinsConfigToDict)
         self.pushButton_new.clicked.connect(self.NewPinsConfiguration)
         self.pushButton_load.clicked.connect(self.LoadPinsConfigurationFromFile)
@@ -124,8 +126,7 @@ class Main(QMainWindow):
 if __name__ == '__main__':
     app = QtGui.QApplication(sys.argv)
     main = Main()
-    app.setWindowIcon(QtGui.QIcon(main.resource_path('mohsen.jpg')))
-
+    #app.setWindowIcon(QtGui.QIcon(main.resource_path('mohsen.jpg')))
     main.show()
     sys.exit(app.exec_())
 
