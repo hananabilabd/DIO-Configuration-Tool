@@ -12,4 +12,5 @@ DIO Configuration Tool GUI
 - Import resource_rc.py  in the main.py
 ##### PyInsatller command to convert py to exe
 - to be written inside virtual_env
+
       $ pyinstaller -F path_to_main\main.py
