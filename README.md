@@ -10,3 +10,6 @@ DIO Configuration Tool GUI
 - path_to_pyrcc4\pyrcc4.exe resource.qrc -o resource_rc.py 
       (the converted .py must named resource_rc.py)
 - Import resource_rc.py  in the main.py
+##### PyInsatller command to convert py to exe
+- to be written inside virtual_env
+      $ pyinstaller -F path_to_main\main.py
